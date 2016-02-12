@@ -136,7 +136,6 @@ int main(void){
 					printf("\n B=");
 					scanf("%lf", &float_user_input);
 					exponent = float_user_input;
-					scanf("%d", &user_input);
 					standard_C_of_n = ((mantissa * pow(10.0, exponent)) / 2);
 					user_input = 7;
 					//Machinery + electronics:
@@ -155,7 +154,6 @@ int main(void){
 					printf("\n B=");
 					scanf("%lf", &float_user_input);
 					exponent = float_user_input;
-					scanf("%d", &user_input);
 					standard_C_of_n = (((mantissa * pow(10.0, exponent)) * (3.0 * pow(10.0, 15))) / 2); // 3 * 10^15 proteins per microliter!
 					user_input = 7;
 					//"we estimate a range of 2–4 million proteins per cubic micron (i.e. 1?fL) in bacteria, yeast, and mammalian cells"
@@ -181,7 +179,6 @@ int main(void){
 						printf("\n B=");
 						scanf("%lf", &float_user_input);
 						exponent = float_user_input;
-						scanf("%d", &user_input);
 						standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human);
 						user_input = 7;
 	
@@ -200,7 +197,6 @@ int main(void){
 							printf("\n B=");
 							scanf("%lf", &float_user_input);
 							exponent = float_user_input;
-							scanf("%d", &user_input);
 							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_brain);
 							user_input = 7;	
 						}
@@ -215,7 +211,6 @@ int main(void){
 							printf("\n B=");
 							scanf("%lf", &float_user_input);
 							exponent = float_user_input;
-							scanf("%d", &user_input);
 							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_cerebral_cortex);
 							user_input = 7;	
 					
@@ -234,7 +229,6 @@ int main(void){
 	printf("\n B=");
 	scanf("%lf", &float_user_input);
 	exponent = float_user_input;
-	scanf("%d", &user_input);
 	life_time = (mantissa * pow(10.0, exponent));
 	
 	printf("\n Do you want to consider truth? \n (Most calculations do not require it.) \n 1 = yes, 0 = no \n");
