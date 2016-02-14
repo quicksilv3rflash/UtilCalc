@@ -1,6 +1,7 @@
 /* UTILCALC V0.2. Switches to double precision floating point and uses a new input method (scientific notation)
 for lifetime, neuron number, volume, et cetera. V0.2 should elminate the bug in V0.1 which caused the value
-of Globicephala melas to be erroneously underestimated vs H. sapiens (G. melas should be about 4.3x more valuable than H. sapiens)
+of Globicephala melas to be erroneously underestimated vs H. sapiens
+(G. melas should be about 4.3x more valuable than H. sapiens ignoring lifespan differences)
 
 estimate the ethical utility value of the lives of entities! 
 
