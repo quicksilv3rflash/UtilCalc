@@ -129,7 +129,7 @@ int main(void){
 			
 			printf("\n What is the response time of an individual synthetic neuron in milliseconds? \n");
 			printf("\n We will use scientific notation in the following form:\n");
-			printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n 0   <= B <= 150 \n \n A=");
+			printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n -150<= B <= 150 \n \n A=");
 			scanf("%lf", &float_user_input);
 			mantissa = float_user_input;
 			printf("\n B=");
