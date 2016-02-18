@@ -102,7 +102,7 @@ int main(void){
 	double T2s_value = 0; //the final output, units: T^2 s
 	
 	//your typical welcome message
-	printf("Welcome to UTIL CALC V0.2! \n KNOWN BUGS: \n -Does not support cyborgs \n -Values giant neuronless blobs of cells, \n such as trees, more than humans.\n");
+	printf("Welcome to UTIL CALC V0.2! \n KNOWN BUGS: \n -Does not support cyborgs \n \n");
 	printf("\n Begin to describe the structure \n you wish to ascertain the ethical value of the life of. \n Does it perceive and interact with reality?");
 	printf("\n 1 = yes, 0 = no \n");
 	scanf("%d", &user_input);
@@ -135,7 +135,7 @@ int main(void){
 			printf("\n B=");
 			scanf("%lf", &float_user_input);
 			exponent = float_user_input;
-			response_time_of_synthetic_neuron = ((mantissa * pow(10.0, exponent)); //synthetic neuron response time in milliseconds (a human neuron responds/recovers in about 150 milliseconds)
+			response_time_of_synthetic_neuron = (mantissa * pow(10.0, exponent)); //synthetic neuron response time in milliseconds (a human neuron responds/recovers in about 150 milliseconds)
 			printf("\n How many synthetic neurons does the structure have? \n");
 			printf("\n We will use scientific notation in the following form:\n");
 			printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n 0   <= B <= 150 \n \n A=");
