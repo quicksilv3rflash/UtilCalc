@@ -102,7 +102,7 @@ int main(void){
 	double T2s_value = 0; //the final output, units: T^2 s
 	
 	//your typical welcome message
-	printf("Welcome to UTIL CALC V0.2! \n KNOWN BUGS: \n -Does not support cyborgs \n \n");
+	printf("Welcome to UTIL CALC V1.0! \n KNOWN BUGS: \n -Does not support cyborgs \n \n");
 	printf("\n Begin to describe the structure \n you wish to ascertain the ethical value of the life of. \n Does it perceive and interact with reality?");
 	printf("\n 1 = yes, 0 = no \n");
 	scanf("%d", &user_input);
