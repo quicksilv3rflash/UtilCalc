@@ -48,17 +48,17 @@ THERMOSTATS = #proteins / 2
 (proteins are the active parts of life!)
 
 Innervated biological entities without central nervous systems:
-THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity / #neurons_in_average_human)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity / #neurons_in_average_human)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 
 Nonmammals with central nervous systems, also, synthetic neural networks implemented physically or in simulations,
 which will be considered "floating brains" for the purposes of this ethical system:
-THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_bio_entity_brain / #neurons_in_average_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_bio_entity_brain / #neurons_in_average_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 -OR-
 (because most synthetic neurons -- used in things like multilayer perceptrons -- are much simpler than biological neurons)
-THERMOSTATS = (#proteins_in_average_human / 2)*(#of_input_synapses_per_synthetic_neuron / #of_input_synapses_in_average_human_neuron)*(#neurons_in_entity_neural_network / #neurons_in_average_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron) 
+THERMOSTATS = (#proteins_in_average_human / 2)*(#of_input_synapses_per_synthetic_neuron / #of_input_synapses_in_average_human_neuron)*(#neurons_in_entity_neural_network / #neurons_in_average_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron), 0.5)
 
 Mammals:
-THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity_cerebral_cortex / #neurons_in_average_human_cerebral_cortex)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity_cerebral_cortex / #neurons_in_average_human_cerebral_cortex)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 
 The most glaring bug with this system as far as I can tell is that non-innervated biological things which are physically larger
 and live longer than humans are ranked more highly. In UTIL CALC V0.2, redwoods are the most valuable entity by far! Some sort of adjustment
@@ -144,8 +144,8 @@ int main(void){
 			printf("\n B=");
 			scanf("%lf", &float_user_input);
 			exponent = float_user_input;
-			//THERMOSTATS = (#proteins_in_average_human / 2)*(#of_input_synapses_per_synthetic_neuron / #of_input_synapses_in_average_human_neuron)*(#neurons_in_entity_neural_network / #neurons_in_average_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron)
-			standard_C_of_n = (number_of_proteins_in_human / 2.0)*(synthetic_neural_network_correction_factor)*((mantissa * pow(10.0, exponent))/number_of_neurons_in_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron);
+			//THERMOSTATS = (#proteins_in_average_human / 2)*(#of_input_synapses_per_synthetic_neuron / #of_input_synapses_in_average_human_neuron)*(#neurons_in_entity_neural_network / #neurons_in_average_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron),0.5)// we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
+			standard_C_of_n = (number_of_proteins_in_human / 2.0)*(synthetic_neural_network_correction_factor)*((mantissa * pow(10.0, exponent))/number_of_neurons_in_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)*(response_time_of_human_neuron / response_time_of_synthetic_neuron), 0.5);
 			user_input = 7;
 		}
 		if(user_input == 0){		
@@ -205,7 +205,7 @@ int main(void){
 						//brainless but innervated things are compared with the total human number of neurons
 						
 						//Innervated biological entities without central nervous systems:
-						//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity / #neurons_in_average_human)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+						//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity / #neurons_in_average_human)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 						printf("\n We will use scientific notation in the following form:\n");
 						printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n 0   <= B <= 150 \n \n A=");
 						scanf("%lf", &float_user_input);
@@ -213,7 +213,7 @@ int main(void){
 						printf("\n B=");
 						scanf("%lf", &float_user_input);
 						exponent = float_user_input;
-						standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network);
+						standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5);
 						user_input = 7;
 	
 					}
@@ -223,7 +223,7 @@ int main(void){
 						if(user_input == 0){ //nonmammals with brains!
 							printf("\n How many neurons are in the structure's brain? \n");
 							//Nonmammals with central nervous systems
-							//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_bio_entity_brain / #neurons_in_average_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+							//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_bio_entity_brain / #neurons_in_average_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 							printf("\n We will use scientific notation in the following form:\n");
 							printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n 0   <= B <= 150 \n \n A=");
 							scanf("%lf", &float_user_input);
@@ -231,13 +231,13 @@ int main(void){
 							printf("\n B=");
 							scanf("%lf", &float_user_input);
 							exponent = float_user_input;
-							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_brain)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network);
+							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_brain)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5);
 							user_input = 7;	
 						}
 						if(user_input == 1){
 							printf("\n How many neurons are in the structure's cerebral cortex? \n");
 							//Mammals:
-							//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity_cerebral_cortex / #neurons_in_average_human_cerebral_cortex)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network)
+							//THERMOSTATS = (#proteins_in_average_human / 2)*(#neurons_in_entity_cerebral_cortex / #neurons_in_average_human_cerebral_cortex)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5) // we square root since complexity is squared in a later step but we want to bring in speed as a linear factor in the final answer.
 							printf("\n We will use scientific notation in the following form:\n");
 							printf("\n A * (10 ^ B)\n 1.0 <= A <= 9.9 \n 0   <= B <= 150 \n \n A=");
 							scanf("%lf", &float_user_input);
@@ -245,7 +245,7 @@ int main(void){
 							printf("\n B=");
 							scanf("%lf", &float_user_input);
 							exponent = float_user_input;
-							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_cerebral_cortex)*(conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network);
+							standard_C_of_n = (number_of_proteins_in_human / 2.0)*((mantissa * pow(10.0, exponent))/ number_of_neurons_in_human_cerebral_cortex)*pow((conduction_speed_of_myelinated_axon / conduction_speed_of_mycelial_network), 0.5);
 							user_input = 7;	
 					
 						}
